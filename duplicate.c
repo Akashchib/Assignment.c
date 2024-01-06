@@ -1,33 +1,38 @@
-
-
-
 #include <stdio.h>
 
+void findDuplicates(int arr[], int size) {
+    printf("Duplicate elements in the array are: ");
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] == arr[j]) {
+                printf("%d ", arr[i]);
+                break;
+            }
+        }
+    }
+    printf("\n");
+}
+
 int main() {
-    // Declare and initialize the original array
-    int originalArray[] = {1, 2, 3, 4, 5};
-    int originalSize = sizeof(originalArray) / sizeof(originalArray[0]);
+    int size;
 
-    // Declare a new array to store the duplicate
-    int duplicateArray[originalSize];
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
 
-    // Duplicate the array elements
-    for (int i = 0; i < originalSize; i++) {
-        duplicateArray[i] = originalArray[i];
+    int arr[size];
+
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
     }
 
-    // Display the original array
-    printf("Original Array: ");
-    for (int i = 0; i < originalSize; i++) {
-        printf("%d ", originalArray[i]);
-    }
-
-    // Display the duplicated array
-    printf("\nDuplicate Array: ");
-    for (int i = 0; i < originalSize; i++) {
-        printf("%d ", duplicateArray[i]);
-    }
+    findDuplicates(arr, size);
 
     return 0;
 }
+
+
+
+
+
 
