@@ -1,3 +1,5 @@
+
+
 #include <stdio.h>
 
 int main() {
@@ -5,44 +7,48 @@ int main() {
     double num1, num2, result;
 
     do {
-        printf("Enter an operator (+, -, *, /) or 'q' to quit: ");
+        // Display menu
+        printf("Enter operator (+, -, *, /) or 'q' to quit: ");
         scanf(" %c", &operator);
 
-        if (operator == 'q') {
-            break;  // Exit the loop if 'q' is entered
+        // Check if the user wants to quit
+        if (operator == 'q' || operator == 'Q') {
+            break;
         }
 
+        // Input two numbers
         printf("Enter two numbers: ");
         scanf("%lf %lf", &num1, &num2);
 
+        // Perform operation and display result
         switch (operator) {
             case '+':
                 result = num1 + num2;
+                printf("Result: %.2lf\n", result);
                 break;
             case '-':
                 result = num1 - num2;
+                printf("Result: %.2lf\n", result);
                 break;
             case '*':
                 result = num1 * num2;
+                printf("Result: %.2lf\n", result);
                 break;
             case '/':
                 if (num2 != 0) {
                     result = num1 / num2;
+                    printf("Result: %.2lf\n", result);
                 } else {
-                    printf("Error: Division by zero is not allowed.\n");
-                    continue;  // Skip the rest of the loop and restart
+                    printf("Error: Division by zero\n");
                 }
                 break;
             default:
-                printf("Invalid operator. Please enter +, -, *, /, or 'q' to quit.\n");
-                continue;  // Skip the rest of the loop and restart
+                printf("Error: Invalid operator\n");
         }
 
-        printf("Result: %.2f\n", result);
+    } while (1); // Infinite loop, will break on 'q' or 'Q'
 
-    } while (1);
+    printf("Calculator has been closed.\n");
 
-    printf("Calculator program terminated.\n");
-
-    return 0;
+    return 0;
 }
