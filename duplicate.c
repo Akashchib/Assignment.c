@@ -1,34 +1,33 @@
+
+
+
 #include <stdio.h>
 
 int main() {
-    char operator;
-    double num1, num2, result;
+    // Declare and initialize the original array
+    int originalArray[] = {1, 2, 3, 4, 5};
+    int originalSize = sizeof(originalArray) / sizeof(originalArray[0]);
 
-    printf("Enter an operator (+, -, *, /): ");
-    scanf(" %c", &operator);
+    // Declare a new array to store the duplicate
+    int duplicateArray[originalSize];
 
-    printf("Enter two numbers: ");
-    scanf("%lf %lf", &num1, &num2);
-
-    if (operator == '+') {
-        result = num1 + num2;
-        printf("Result: %.2f\n", result);
-    } else if (operator == '-') {
-        result = num1 - num2;
-        printf("Result: %.2f\n", result);
-    } else if (operator == '*') {
-        result = num1 * num2;
-        printf("Result: %.2f\n", result);
-    } else if (operator == '/') {
-        if (num2 != 0) {
-            result = num1 / num2;
-            printf("Result: %.2f\n", result);
-        } else {
-            printf("Error: Division by zero is not allowed.\n");
-        }
-    } else {
-        printf("Invalid operator.\n");
+    // Duplicate the array elements
+    for (int i = 0; i < originalSize; i++) {
+        duplicateArray[i] = originalArray[i];
     }
 
-    return 0;
+    // Display the original array
+    printf("Original Array: ");
+    for (int i = 0; i < originalSize; i++) {
+        printf("%d ", originalArray[i]);
+    }
+
+    // Display the duplicated array
+    printf("\nDuplicate Array: ");
+    for (int i = 0; i < originalSize; i++) {
+        printf("%d ", duplicateArray[i]);
+    }
+
+    return 0;
 }
+
